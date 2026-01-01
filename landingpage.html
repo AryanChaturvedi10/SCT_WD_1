@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finpay - Get Paid Early</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="landingpage.css">
+</head>
+<body class="bg-white">
+
+    <!-- =========== HEADER / NAVIGATION =========== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo and Nav Links -->
+            <div class="flex items-center space-x-10">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.3745 22.25C11.8895 22.25 11.4195 22.06 11.0595 21.7L3.93945 14.58C3.21945 13.86 2.86945 12.9 2.86945 11.88V7.3C2.86945 5.89 4.02945 4.73 5.43945 4.73H9.99945C11.0195 4.73 11.9795 5.08 12.6995 5.8L19.8195 12.92C21.0895 14.19 21.0895 16.23 19.8195 17.5L15.2595 22.06C14.5395 22.78 13.5795 23.13 12.5695 23.13L12.3745 22.25Z" fill="#0EA5E9"></path>
+                        <path d="M12.3755 23.125C13.5801 23.125 14.5401 22.775 15.2601 22.055L19.8201 17.495C21.0901 16.225 21.0901 14.185 19.8201 12.915L12.7001 5.795C11.9801 5.075 11.0201 4.725 10.0001 4.725H5.44012C4.03012 4.725 2.87012 5.885 2.87012 7.295V11.875C2.87012 12.895 3.22012 13.855 3.94012 14.575L11.0601 21.695C11.4201 22.055 11.8901 22.245 12.3751 22.245H12.3755V23.125Z" stroke="#0284C7" stroke-width="1.5"></path>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-800">Finpay</span>
+                </a>
+                <!-- Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#products" class="text-gray-600 hover:text-cyan-500 transition-colors duration-200 font-medium">Products</a>
+                    <a href="#customers" class="text-gray-600 hover:text-cyan-500 transition-colors duration-200 font-medium">Customers</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-cyan-500 transition-colors duration-200 font-medium">Pricing</a>
+                    <a href="#learn" class="text-gray-600 hover:text-cyan-500 transition-colors duration-200 font-medium">Learn</a>
+                </nav>
+            </div>
+            <!-- Auth Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button data-modal-target="auth-modal" data-tab="login" class="auth-button text-gray-800 font-semibold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">Login</button>
+                <button data-modal-target="auth-modal" data-tab="signup" class="auth-button bg-cyan-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors duration-200 shadow-sm">Sign Up</button>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white mt-2">
+            <a href="#products" class="nav-link block py-2 px-6 text-gray-600 hover:bg-gray-100">Products</a>
+            <a href="#customers" class="nav-link block py-2 px-6 text-gray-600 hover:bg-gray-100">Customers</a>
+            <a href="#pricing" class="nav-link block py-2 px-6 text-gray-600 hover:bg-gray-100">Pricing</a>
+            <a href="#learn" class="nav-link block py-2 px-6 text-gray-600 hover:bg-gray-100">Learn</a>
+            <div class="border-t border-gray-200 mt-2 pt-2 px-6 pb-4 space-y-2">
+                 <button data-modal-target="auth-modal" data-tab="login" class="auth-button block w-full text-center bg-gray-100 text-gray-800 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200">Login</button>
+                <button data-modal-target="auth-modal" data-tab="signup" class="auth-button block w-full text-center bg-cyan-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors duration-200">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========== HERO SECTION =========== -->
+    <main class="pt-24">
+        <section id="home" class="container mx-auto px-6 py-16 lg:py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
+                        Get paid early <br> save automatically <br> all your pay.
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-600 max-w-lg mx-auto lg:mx-0">
+                        Supports small businesses with simple invoicing, powerful integrations, and cash flow management tools.
+                    </p>
+                    <form class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0">
+                        <input type="email" placeholder="Your business email" class="w-full px-5 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500 transition-colors duration-200" required>
+                        <button type="submit" class="bg-cyan-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors duration-200 flex items-center justify-center space-x-2 shadow-sm whitespace-nowrap">
+                            <span>Get Started</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 8.586l2.293-2.293z" clip-rule="evenodd" transform="rotate(-90 10 10)"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="mt-12">
+                        <div class="flex justify-center lg:justify-start items-center space-x-8 grayscale opacity-60">
+                            <span class="text-2xl font-bold">Klarna.</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Coinbase_logo.svg/2560px-Coinbase_logo.svg.png" alt="Coinbase Logo" class="h-5" onerror="this.style.display='none'">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Instacart_logo_and_wordmark.svg/2560px-Instacart_logo_and_wordmark.svg.png" alt="Instacart Logo" class="h-7" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content (Payment Card UI) -->
+                <div class="flex justify-center items-center">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Background Card -->
+                        <div class="absolute top-0 left-0 w-full h-full bg-cyan-500 rounded-2xl transform -rotate-6 transition-transform duration-500 hover:rotate-0"></div>
+                        
+                        <!-- Main Card -->
+                        <div class="relative bg-white p-6 rounded-2xl shadow-2xl w-full">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Rahul Sharma</p>
+                                        <p class="text-sm text-gray-500">rahul.sharma@example.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <p class="text-sm text-gray-500">Invoice</p>
+                                <p class="text-4xl font-bold text-gray-900">₹1,87,65,800</p>
+                                <p class="text-sm text-gray-500 mt-1">April 21, 2024</p>
+                            </div>
+                            
+                            <div class="mt-6 space-y-3">
+                                <!-- Credit Card Option -->
+                                <div class="border-2 border-cyan-500 rounded-xl p-4 flex justify-between items-center relative">
+                                    <div class="flex items-center space-x-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                        <span class="font-semibold text-gray-800">Credit Card</span>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border-2 border-cyan-500 flex items-center justify-center">
+                                        <div class="w-2.5 h-2.5 bg-cyan-500 rounded-full"></div>
+                                    </div>
+                                    
+                                    <!-- Floating Credit Card Visual -->
+                                    <div class="absolute -top-10 -right-5 w-48 h-28 bg-gray-800 rounded-xl shadow-lg p-4 flex flex-col justify-between transform rotate-6">
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-300">Credit Card</p>
+                                            <p class="text-white font-mono tracking-widest mt-1">234 **** ****</p>
+                                        </div>
+                                        <div class="flex justify-between items-end">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-white" viewBox="0 0 38 24" fill="currentColor"><path d="M35.22 6.4h-2.26a2.64 2.64 0 0 0-2.58-2.1H7.62a2.64 2.64 0 0 0-2.58 2.1H2.78A2.79 2.79 0 0 0 0 9.18v9.24a2.79 2.79 0 0 0 2.78 2.78h32.44A2.79 2.79 0 0 0 38 18.42V9.18A2.79 2.79 0 0 0 35.22 6.4zM24.7 17.15H21.9v-7.3h2.8zm-6.06 0h-2.8v-7.3h2.8zm-6.18-7.3h-2.8v7.3h2.8zm-6.24 0H3.4v-1a.56.56 0 0 1 .56-.56h2.28a.56.56 0 0 1 .56.56zm21.46 0h-2.8v-1a.56.56 0 0 1 .56-.56h2.28a.56.56 0 0 1 .56.56z" fill="#fff"/><path d="M12.5 17.15H9.7v-7.3h2.8zm-6.18 0H3.5v-7.3h2.82z" fill="#fff"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.006a9.5 9.5 0 1011.545 0M12 17.55a9.5 9.5 0 00-3.772-8.545" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Bank Account Option -->
+                                <div class="border border-gray-200 rounded-xl p-4 flex justify-between items-center">
+                                    <div class="flex items-center space-x-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                        </svg>
+                                        <span class="font-semibold text-gray-600">Bank Account</span>
+                                    </div>
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                                </div>
+                            </div>
+                            
+                            <button class="mt-6 w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-colors duration-200">
+                                Pay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- =========== PRODUCTS SECTION =========== -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-800">All-in-one platform for your business</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Manage invoices, track cash flow, and integrate your favorite tools, all from one place.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1: Invoicing -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-cyan-100 text-cyan-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Smart Invoicing</h3>
+                    <p class="text-gray-600">Create and send professional invoices in seconds. Get paid faster with automated reminders and online payment options.</p>
+                </div>
+                <!-- Product Card 2: Cash Flow -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-cyan-100 text-cyan-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cash Flow Management</h3>
+                    <p class="text-gray-600">Get a real-time view of your business's financial health. Forecast future cash flow and make informed decisions.</p>
+                </div>
+                <!-- Product Card 3: Integrations -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-cyan-100 text-cyan-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M3 10h2a2 2 0 012 2v6a2 2 0 01-2 2H3v-8zm6 0h2a2 2 0 012 2v6a2 2 0 01-2 2H9v-8zm6 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v-8z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Powerful Integrations</h3>
+                    <p class="text-gray-600">Connect Finpay with your existing accounting software, CRM, and other tools to streamline your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== CUSTOMERS SECTION =========== -->
+    <section id="customers" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-800">Loved by businesses worldwide</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">From startups to Fortune 500s, Finpay is the trusted choice for managing finances.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-gray-700 mb-6">"Finpay has been a game-changer for our business. Invoicing is a breeze, and we get paid so much faster. The cash flow insights are invaluable."</p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=PM" alt="Avatar of Priya Mehta">
+                        <div>
+                            <p class="font-bold text-gray-800">Priya Mehta</p>
+                            <p class="text-sm text-gray-600">CEO, Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-gray-700 mb-6">"The ability to integrate with our existing tools made the switch to Finpay seamless. Their customer support is top-notch!"</p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=RK" alt="Avatar of Rohan Kapoor">
+                        <div>
+                            <p class="font-bold text-gray-800">Rohan Kapoor</p>
+                            <p class="text-sm text-gray-600">Founder, Creative Minds</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-gray-700 mb-6">"As a freelancer, managing finances used to be a headache. Finpay simplifies everything and helps me stay on top of my payments."</p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=SP" alt="Avatar of Sunita Patel">
+                        <div>
+                            <p class="font-bold text-gray-800">Sunita Patel</p>
+                            <p class="text-sm text-gray-600">Freelance Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== PRICING SECTION =========== -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-800">Simple, transparent pricing</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Choose the plan that's right for your business. No hidden fees, ever.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Pricing Plan 1: Starter -->
+                <div class="pricing-card bg-white p-8 rounded-xl shadow-md border border-gray-200 flex flex-col hover:border-cyan-500 transition-colors duration-200">
+                    <h3 class="text-2xl font-bold text-gray-800">Starter</h3>
+                    <p class="text-gray-600 mt-2">For freelancers and solo entrepreneurs.</p>
+                    <p class="text-5xl font-extrabold text-gray-900 mt-6">₹2,499<span class="text-lg font-medium text-gray-500">/mo</span></p>
+                    <ul class="space-y-4 mt-8 text-gray-600 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up to 20 invoices/month</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Basic cash flow insights</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Standard integrations</li>
+                    </ul>
+                    <a href="#" class="pricing-button mt-8 block w-full text-center bg-white border border-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-lg hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all duration-200">Choose Plan</a>
+                </div>
+                <!-- Pricing Plan 2: Pro (Featured) -->
+                <div class="pricing-card bg-white p-8 rounded-xl shadow-xl border-2 border-cyan-500 flex flex-col relative">
+                    <span class="absolute top-0 -translate-y-1/2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase left-1/2 -translate-x-1/2">Most Popular</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Pro</h3>
+                    <p class="text-gray-600 mt-2">For small to medium-sized businesses.</p>
+                    <p class="text-5xl font-extrabold text-gray-900 mt-6">₹6,499<span class="text-lg font-medium text-gray-500">/mo</span></p>
+                    <ul class="space-y-4 mt-8 text-gray-600 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited invoices</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Advanced cash flow forecasting</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Premium integrations</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority support</li>
+                    </ul>
+                    <a href="#" class="pricing-button mt-8 block w-full text-center bg-cyan-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors duration-200">Choose Plan</a>
+                </div>
+                <!-- Pricing Plan 3: Enterprise -->
+                <div class="pricing-card bg-white p-8 rounded-xl shadow-md border border-gray-200 flex flex-col hover:border-cyan-500 transition-colors duration-200">
+                    <h3 class="text-2xl font-bold text-gray-800">Enterprise</h3>
+                    <p class="text-gray-600 mt-2">For large teams and agencies.</p>
+                    <p class="text-5xl font-extrabold text-gray-900 mt-6">Custom</p>
+                    <ul class="space-y-4 mt-8 text-gray-600 flex-grow">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Pro, plus:</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated account manager</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom API access</li>
+                    </ul>
+                    <a href="#" class="pricing-button mt-8 block w-full text-center bg-white border border-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-lg hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all duration-200">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== LEARN SECTION =========== -->
+    <section id="learn" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-800">Insights and Resources</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Explore our blog for tips, tutorials, and best practices for managing your business finances.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Blog Post 1 -->
+                <a href="#" class="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <img src="https://placehold.co/600x400/0EA5E9/FFFFFF?text=Finance+Tips" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-cyan-600 font-semibold">TIPS & TRICKS</p>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 group-hover:text-cyan-500 transition-colors">5 Tips for Getting Your Invoices Paid on Time</h3>
+                        <p class="text-gray-600 mt-2">Learn effective strategies to reduce late payments and improve your cash flow.</p>
+                    </div>
+                </a>
+                <!-- Blog Post 2 -->
+                <a href="#" class="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Business+Growth" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-cyan-600 font-semibold">BUSINESS GROWTH</p>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 group-hover:text-cyan-500 transition-colors">How to Scale Your Business with Smart Financial Planning</h3>
+                        <p class="text-gray-600 mt-2">A guide to financial forecasting and budgeting for sustainable growth.</p>
+                    </div>
+                </a>
+                <!-- Blog Post 3 -->
+                <a href="#" class="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Product+Updates" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-cyan-600 font-semibold">PRODUCT UPDATES</p>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 group-hover:text-cyan-500 transition-colors">New Feature: Automated Expense Tracking</h3>
+                        <p class="text-gray-600 mt-2">Discover how our latest feature can save you hours on expense management.</p>
+                    </div>
+                </a>
+                <!-- Blog Post 4 -->
+                <a href="#" class="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Case+Study" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-cyan-600 font-semibold">CASE STUDY</p>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 group-hover:text-cyan-500 transition-colors">How "Creative Minds" Increased Revenue by 20%</h3>
+                        <p class="text-gray-600 mt-2">Read how our customer leveraged Finpay to optimize their financial operations.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== AUTHENTICATION MODAL =========== -->
+    <div id="auth-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-container bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 transform scale-95">
+            <!-- Close Button -->
+            <button class="modal-close-button absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- Tabs -->
+            <div class="flex border-b border-gray-200">
+                <button data-tab-id="login-tab" class="tab-button flex-1 py-3 font-semibold text-center border-b-2 border-cyan-500 text-cyan-500">Login</button>
+                <button data-tab-id="signup-tab" class="tab-button flex-1 py-3 font-semibold text-center border-b-2 border-transparent text-gray-500 hover:text-gray-700">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-tab" class="tab-content mt-6">
+                <form>
+                    <div class="space-y-4">
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500" required>
+                        <input type="password" placeholder="Password" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500" required>
+                    </div>
+                    <a href="#" class="block text-sm text-cyan-600 hover:underline mt-3 text-right">Forgot Password?</a>
+                    <button type="submit" class="mt-6 w-full bg-cyan-500 text-white font-bold py-3 rounded-lg hover:bg-cyan-600 transition-colors">Login</button>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-tab" class="tab-content mt-6 hidden">
+                <form>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Full Name" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500" required>
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500" required>
+                        <input type="password" placeholder="Create Password" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-cyan-500" required>
+                    </div>
+                    <button type="submit" class="mt-6 w-full bg-cyan-500 text-white font-bold py-3 rounded-lg hover:bg-cyan-600 transition-colors">Create Account</button>
+                </form>
+            </div>
+            
+            <!-- Social Login Separator -->
+            <div class="my-6 flex items-center">
+                <div class="flex-grow border-t border-gray-200"></div>
+                <span class="px-4 text-sm text-gray-500 bg-white">OR</span>
+                <div class="flex-grow border-t border-gray-200"></div>
+            </div>
+
+            <!-- Social Login Buttons -->
+            <div class="space-y-3">
+                <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
+                    <img src="https://www.google.com/favicon.ico" alt="Google" class="w-5 h-5 mr-3">
+                    <span class="font-semibold text-gray-700">Continue with Google</span>
+                </button>
+                <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
+                     <svg class="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.86c-1.39 0-2.68.49-3.79 1.39-.22.18-.43.37-.64.57-.1.1-.19.2-.28.3-.59.61-1.07 1.33-1.41 2.12-.23.52-.4 1.08-.5 1.66-.03.2-.05.4-.06.6-.05.6-.06 1.2-.01 1.81.09 1.1.4 2.15 1.01 3.1.2.3.42.59.66.86.12.14.25.27.38.4.5.51 1.07.96 1.69 1.34.49.3.99.53 1.52.69.26.08.52.14.78.18.6.09 1.22.1 1.83.02.55-.07 1.09-.23 1.61-.45.5-.22 1-.53 1.41-.9.39-.35.74-.76 1.04-1.21.15-.22.29-.45.42-.69.53-1 .85-2.1.95-3.21.05-.6.04-1.2-.02-1.8-.08-1.04-.38-2.04-.92-2.93-.26-.44-.58-.85-.94-1.22-.2-.2-.4-.39-.62-.57-.97-.86-2.15-1.39-3.48-1.39zm5.35 12.02c-.32.55-.72 1.04-1.18 1.45-.48.42-1.03.76-1.62.99-.54.22-1.1.36-1.68.42-.56.06-1.12.05-1.68-.02-.5-.06-1-.2-1.46-.41-.45-.21-.87-.48-1.26-.8-.4-.32-.75-.7-1.06-1.11-.29-.4-.53-.84-.71-1.31-.33-.87-.46-1.81-.38-2.75.07-.8.34-1.57.81-2.26.46-.68.99-1.23 1.64-1.68.6-.4 1.28-.68 2-.8.7-.12 1.4-.09 2.08.08.64.16 1.25.46 1.79.88.27.2.5.43.71.68.51.6.83 1.3.98 2.05.15.7.15 1.42.01 2.13-.13.68-.42 1.33-.84 1.89z"/><path d="M17.48 3.32a.75.75 0 00-1.06-1.06l-2.12 2.12a.75.75 0 001.06 1.06zM15.42 2.2a.75.75 0 00.75-.75c0-1.66-1.34-3-3-3s-3 1.34-3 3a.75.75 0 001.5 0c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5a.75.75 0 00.75.75z"/></svg>
+                    <span class="font-semibold text-gray-700">Continue with Apple</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="landingpage.js"></script>
+</body>
+</html>
